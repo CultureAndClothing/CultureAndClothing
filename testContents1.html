@@ -7,11 +7,23 @@
         <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
         <script src="jquery.easing.min.js"></script>
     </head>
+
+    <script>
+        $(function() {            
+            $('.top-button').click(function() {
+                $('html, body').animate({
+                    scrollTop : 0
+                }, 400);
+                return false;
+            });
+        });
+    </script>
     
     <body>
         <header>
             <a class = "home" href = "index.html"><img src = "test2/newTestArrow_L.png"></a>
             <div class = "title">Ep.1 About Culture & Clothing</div>
+            <a class = "home" href = "index.html"><img src = "test2/home.png"></a>
         </header>
 
         <div class = "top-button"><img src = "test2/newTestArrow_L.png"></div>
