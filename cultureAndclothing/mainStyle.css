@@ -1,0 +1,201 @@
+/* *{border: solid 0.1px red} */
+
+body{
+    margin:0;
+    padding:0;
+    background-image: url("test2/background.jpg");
+}
+
+/* 헤더 */
+.header-container{
+    display: block;
+    position: fixed;
+    top:0;
+    height: auto;
+    width:100vw;
+    z-index:2;
+}
+
+.logo{
+    width:120px;
+    margin:50px;
+}
+
+.logo img {
+    width: 100%;
+}
+
+/* 푸터 */
+.footer-container{
+    display: inline-flex;
+    position: fixed;
+    bottom:0;
+    margin:50px;
+    z-index: 3;
+    /* border: solid 0.1px red; */
+    line-height: 32px;
+    font-size: 16px;
+}
+
+.job{
+    font-weight: 700;
+    /* border: solid 0.1px red; */
+}
+
+.instagram-tag-container{
+    margin-left: 30px;
+    /* border: solid 0.1px red; */
+}
+
+a:link{
+    color:black
+}
+
+a:visited{
+    color: black;
+}
+
+
+/* 배경화면 css */
+.slide-container{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width:300vw;
+    position: fixed;
+    transition: 1.3s;
+    z-index:0;
+    top: 50%;
+    transform: translateY(-50%);
+    
+}
+
+.slide-box{
+    width:100vw;
+    float: left;
+    position: relative;
+    /* border: solid 0.1px blue; */
+}
+
+.slide-box img{
+    width:100%;
+}
+
+/* 콘텐츠 섬네일 */
+
+.mag-1{
+    position: absolute;
+    left:50%;
+    top:50%;
+    transform: translate(-50%,-50%);
+    width:600px;
+    height:702px;
+
+}
+
+.mag-1 img{
+    width: 100%;
+}
+
+
+/* 버튼  */
+
+.button-container{
+    display: flex;
+    position: fixed;
+    bottom:40px;
+    left:50%;
+    transform: translateX(-50%);
+    width:100vw;
+    z-index:2;
+    align-items: center;
+    justify-content: center;
+}
+
+.past{
+    width:40px;
+    height:40px;
+    margin:20px;
+    opacity: 30%;
+}
+
+.past img {
+    width: 100%;
+}
+
+.next{
+    width:40px;
+    height:40px;
+    margin:20px;
+    opacity: 30%;
+}
+
+.next img {
+    width:100%;
+}
+
+.empty{
+    width:100px;
+
+}
+
+.next:hover{
+    opacity: 100;
+}
+
+.past:hover{
+    opacity: 100;
+}
+
+.insta{
+    opacity: 30%;
+}
+
+.insta:hover{
+    opacity: 100%;
+}
+
+
+@media all and (max-width: 1024px) {
+    .logo{
+        width:80px;
+        margin:24px;
+    }
+
+    .footer-container{
+        display: none;
+    }
+
+    .button-container{
+        width:100vw;
+        z-index:999;
+        align-items: center;
+        justify-content: center;
+
+    }
+    
+    .past{
+        width:32px;
+        height:32px;
+        margin:24px;
+
+    }
+    
+    .next{
+        width:32px;
+        height:32px;
+
+    }
+    
+    .empty{
+        width:40%;
+
+    
+    }
+
+    .mag-1{
+        width:100vw;
+        height:auto;
+    
+    }
+}
