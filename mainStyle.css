@@ -25,6 +25,27 @@ body{
     width: 100%;
 }
 
+/* 모바일일때ㅋ */
+.mobile-tag-container{
+    display: inline-flex;
+    position: fixed;
+    right:0;
+    top:0;
+    width:auto;
+    z-index: 33;
+    border: solid 0.1px red;
+    margin:24px;
+}
+
+.mobile-tag{
+    width:40px;
+    border: solid 0.1px red;
+}
+
+.mobile-tag img{
+    width:100%;
+}
+
 /* 푸터 */
 .footer-container{
     display: inline-flex;
@@ -154,6 +175,9 @@ a:visited{
 .insta:hover{
     opacity: 100%;
 }
+
+
+
 
 
 @media all and (max-width: 1024px) {
