@@ -8,6 +8,7 @@
         <link rel="stylesheet" href="ep1.css">
         <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
         <script src="jquery.easing.min.js"></script>
+        <script src="text/javascript" src = "ep1.js"></script>
     </head>
 
     <script>
@@ -19,19 +20,95 @@
           },
           h=d.documentElement,t=setTimeout(function(){h.className=h.className.replace(/\bwf-loading\b/g,"")+" wf-inactive";},config.scriptTimeout),tk=d.createElement("script"),f=false,s=d.getElementsByTagName("script")[0],a;h.className+=" wf-loading";tk.src='https://use.typekit.net/'+config.kitId+'.js';tk.async=true;tk.onload=tk.onreadystatechange=function(){a=this.readyState;if(f||a&&a!="complete"&&a!="loaded")return;f=true;clearTimeout(t);try{Typekit.load(config)}catch(e){}};s.parentNode.insertBefore(tk,s)
         })(document);
+
+        $(window).scroll(function () {
+			var height = $(document).scrollTop();
+			log(height);
+			
+	    });
+
+        function log(str){
+            $('#log').text(str);
+        }
+        
+
+        $(window).scroll(function(){
+            var h = $(window).scrollTop();
+            
+            if(h >= 120) {
+                $('#eyes').stop().animate({top:30, left: "370px"},400);
+            }
+
+            if(h <= 119) {
+                $('#eyes').stop().animate({top:-30},400);
+            }
+
+            if(h >= 300) {
+                $('#f-hand').stop().animate({left:0},2000,"easeOutExpo");
+                $('#f-hat').stop().animate({left:450},1900,"easeOutExpo");
+            }
+
+            if(h <= 119) {
+                $('#eyes').stop().animate({top:-30},400);
+            }
+
+            if(h >= 1200) {
+                $('#hand').stop().animate({"padding-left": "600px"},500,"easeOutExpo");
+                $('#ep1_03').stop().animate({opacity: 70, width : "500px"},500,"easeOutExpo");
+                $('#line').stop().animate({width : "100%"},500,"easeOutExpo");
+
+            }
+
+            if(h >= 1600) {
+                $('#ep1_03').stop().animate({top:100, width : "700px", opacity: "30%"},1500,"easeOutExpo");
+            }
+
+            if(h <= 1010) {
+                $('#ep1_03').stop().animate({opacity: 0, width : "300px"});
+                $('#hand').stop().animate({"padding-left": "0px"});
+                $('#line').stop().animate({width : 0});
+
+            }
+
+            if(h >= 2450) {
+                $('#memo-1').stop().animate({"rotate": "-4deg"},400,"easeOutElastic");
+
+            }
+
+            if(h >= 5030) {
+                $('#memo-2').stop().animate({"rotate": "-4deg"},400,"easeOutElastic");
+
+            }
+        });
+
+        $(function() {
+            $(".top-btn").click(function() {
+                $('html, body').animate({
+                    scrollTop : 0
+                }, 400);
+                return false;
+            });
+        });
     </script>
+
+    
 
     <style>
         body{
             margin:0;
             padding:0;
             background-image: url("icon source/background.jpg");
-            background-size: contain;
+            background-size:cover;
+            background-repeat: repeat ;
         }
         
     </style>
 
     <body>
+        <div id = "f-hand"><img src = "picture source/ep1_hand.png"></div>
+        <div id = "f-hat"><img src = "picture source/ep1_hat.png"></div>
+        <div class = "graphic-box" id = "ep1-5"><img src= "picture source/ep1-pic4_edit.png"></div>
+
         <header>
             <div class = "button-container">
                 <a class = "button-icon" href="index.html"><img src = "icon source/newTestArrow_L.png"></a>
@@ -40,7 +117,10 @@
             </div>
         </header>
 
+        <div class = "top-btn"><img src = "icon source/newTestArrow_L.png"></div>
+
         <main>
+
             <div class = "thum-container" style="margin-top: 100px;">
                 <div class = "thum-graphic-box" id = "tg01">
                     <img src= "graphic source/ep1_01_3.png">
@@ -50,21 +130,27 @@
                     <img src= "graphic source/ep1_01_1.png">
                 </div>
 
-                <div class = "thum-graphic-box" style="top:-30px;">
+                <div class = "thum-graphic-box" id ="eyes" style="top:-30px; left:350px;">
                     <img src= "graphic source/ep1_01_2.png">
                 </div>
             </div>
 
+           
+            
+
+ 
+
+            
+
             <div class = "contents-container" style="margin-top: 50px;">
-                
                 <div class = "left-sub-container">
-                    <div class = "sub-text-group" style="padding-top: 430px;">
+                    <div class = "sub-text-group" style="padding-top: 400px;">
                         <div class = "graphic-box" id = "ep1-s0-1">
                             <img src = "icon source/tape.png">
                         </div>
 
                         <img src = "picture source/ep1-pic1-1.jpg">
-                        <h5 style="padding-top: 20px;">심판은 잘 차려입은 연미복의 모습<br>이었다고 한다.</h5>
+                        <h5 style="padding-top: 20px;">심판은 잘 차려입은 연미복의<br>모습이었다고 한다.</h5>
 
                         <div class = "graphic-box" id = "ep1-s0-2">
                             <img src = "icon source/tape.png">
@@ -75,7 +161,7 @@
                 </div>
 
                 <div class = "main-container">
-                    <div class = "text-group-2" style="padding-top:200px">
+                    <div class = "text-group-2" style="padding-top:280px">
                         <h3>최초의 야구 모자는 밀짚모자였다.</h3><br>
                         <p>야구는 1840년대 후반 미국에서 매우 신사적인 스포츠였다.
                         당시 노동자들이 입지 않는 고급스러운 모직 옷을 입고
@@ -104,7 +190,11 @@
                         <img src = "graphic source/ep1_02.svg">
                     </div>
                 </div>
-                <div class = "right-sub-container"></div>
+                <div class = "right-sub-container">
+                    <div class = "sub-text-group" style="top:320px; width:150px">
+                        <img src ="graphic source/tik.png">
+                    </div>
+                </div>
             </div>
 
             <div class = "text-group-1" style = "margin:0; padding:0;"><h3>오래되었다는 이유만으로 사랑받는가?</h3></div>
@@ -112,23 +202,37 @@
             <div class = "contents-container">
                 <div class = "left-sub-container"></div>
                 <div class = "main-container">
-                    <div class = "graphic-box" id = "ep1-2"></div>
-                    <div class = "text-group-3">
-                        <p>
-                            <b>1869년 (조선 고종 6년)</b>
-                            <br>미국 야구 최초의 프로팀 신시내티 레드스타킹스 탄생
-                            <br>마하트마 간디 탄생<br><br>
+                    <div class = "graphic-box" id = "hand" style="padding-top: 150px; padding-left: 0; width:200px; opacity: 40%;"><img src = "graphic source/ep1_03_1.png"></div>
+                    <div class = "graphic-box" id = "ep1_03"><img src = "graphic source/ep1_03_2.png"></div>
+                    <div class = "graphic-box" id = "line" style="padding-top: 100px; transform: rotate(-4deg); width:0px;"><img src = "graphic source/ep1_03_3.png"></div>
 
-                            <b>1876년 (조선 고종 13년)</b>
-                            <br>내셔널리그 창설 
-                            <br>김구 선생 탄생<br><br>
-                            
-                            <b>1882년 (조선 고종 19년)</b>
-                            <br>메이저리그 양대 리그 시작
-                            <br>영국프로축구팀 토트넘 핫스퍼 창단
-                            <br>미국 32대 대통령 플랭클린 루스벨트<br>대통령 취임
+                    <div class = "text-group-3" style="padding-top: 340px;">
+                        <p style="line-height: 40px; text-align: center;">
+                            <b>1869년 (조선 고종 6년)</b>
+                            <br>- 미국 야구 최초의 프로팀<br>신시내티 레드스타킹스 탄생
+                            <br>- 마하트마 간디 탄생<br><br>
                         </p>
                     </div>
+
+                    <div class = "text-group-3" style="padding-top: 340px;">
+                        <p style="line-height: 40px; text-align: center;">
+                            <b>1876년 (조선 고종 13년)</b>
+                            <br>- 내셔널리그 창설 
+                            <br>- 김구 선생 탄생
+                        </p>
+                    </div>
+
+                    <div class = "text-group-3" style="padding-top: 340px;">
+                        <p style="line-height: 40px; text-align: center;">
+                            <b>1882년 (조선 고종 19년)</b>
+                            <br>- 메이저리그 양대 리그 시작
+                            <br>- 토트넘 핫스퍼 창단
+                            <br>- 미국 32대 대통령 <br>플랭클린 루스벨트 취임
+                        </p>
+                    </div>
+
+                </div>
+
                 </div>
                 <div class = "right-sub-container"></div>
             </div>
@@ -162,7 +266,7 @@
 
             <div class = "contents-container">
                 <div class = "left-sub-container">
-                    <div class = "sub-text-group">
+                    <div class = "sub-text-group" id = "memo-1" style="rotate :30deg;">
                         <h5 style="margin-top: 70px; padding: 0; transform: rotate(-2deg);">
                             한국 프로야구가 탄생하게 된 것은 1982년 제5공화국이 국민의 관심과 시선을 정치로부터 조금이라도 멀어지게 하기 위해 한국 프로야구 탄생을 추진하고 도와 탄생 하게 되었다.
                         </h5>
@@ -175,7 +279,7 @@
                 </div>
 
                 <div class = "main-container">
-                    <div class = "graphic-box" id = "ep1-4">
+                    <div class = "graphic-box" id = "ep1-4" style="padding-top: 100px;">
                         <img src ="picture source/ep1-pic4.png">
                     </div>
                     <div class = "text-group-3">
@@ -200,7 +304,7 @@
                         </p>
                     </div>
                     <div class = "text-group-3">
-                        <p style="padding-top: 700px;">
+                        <p style="padding-top: 790px;">
                             kbo의 구단은 모기업의 자금으로 만들어진 만큼 
                             운영과 수익을 위한 현상으로 당연하지만 팀의 
                             성향과 정체성에 맞지 않는 스폰서가 보여짐으
@@ -222,24 +326,26 @@
                     </div>
 
                     <div class = "text-group-3" style="padding-top: 680px;">
-                        <div class = "graphic-box" id = "ep1-3" style = "padding-top: 120px;"><img src = "graphic source/ep1_04_1.png"></div>
+                        <div class = "graphic-box" id = "ep1-3" style = "padding-top: 200px;"><img src = "graphic source/ep1_04_1.png"></div>
                         <p>
                             예컨대, 마이애미의 전신인 플로리다가 ‘마린 marin’인 이유는 해변에 위치한 지역을 고려 하여 ‘청새치들’ 이라는 의미를 사용했기 때문
                         </p>
 
-                        <div class = "graphic-box" id = "ep1-3" style = "padding-top: 120px;"><img src = "graphic source/ep1_04_3.png"></div>
+                        <div class = "graphic-box" id = "ep1-3" style = "padding-top: 60px;"><img src = "graphic source/ep1_04_3.png"></div>
                         <p>
                             휴스턴의 팀명은 미국항공우주국 나사(NASA)가 이 지역에 있어 ‘우주비행사’를 의미하는 ‘애스트로 astro’가 됐다.
                         </p>
                     </div>
                 </div>
-                <div class = "right-sub-container"></div>
+                <div class = "right-sub-container">
+                    <div class = "sub-text-group" style = "top:120px; rotate: -10deg;"><img src = "graphic source/naksu.png"></div>
+                </div>
             </div>
 
             <div class = "contents-container">
                 <div class = "left-sub-container">
-                    <div class ="sub-text-group" style="padding-top:430px">
-                        <h5 style="margin-top: 60px; padding: 0; transform: rotate(-1deg);">
+                    <div class ="sub-text-group" id = "memo-2" style="padding-top:430px; rotate :30deg;">
+                        <h5 style="margin-top: 60px; padding: 0; transform: rotate(-1deg);font-size: 12px;">
                             tar heels라는 이름을 가지게 된 이유는 노스캐롤라이나의 초기 산업이 타르와 역청 생산이었고 여름이면 작업자들이 신발을 신기 어려워 맨발로 작업을 했다고 한다. 그때 발 뒷굼치에 눌러붙은 타르가 그때 당시 노동자의 심볼 역할을 했고, 뒤 이어  tar heels라는 명칭이 제대로 사용되기 시작했다. unc가 대학스포츠팀에 들어가면서 부터 주의 정신을 이어받아 푸른 발바닥 형태에 뒷굼치가 까맣게 눌러붙은 디자인으로 자리잡게 되었다. 푸른색은 노스캐롤라이나주의 하늘을 뜻한다. 
                         </h5>
 
@@ -247,7 +353,7 @@
                     </div>
                 </div>
                 <div class = "main-container">
-                    <div class = "text-group-1" style = "margin:0; padding:0; text-align: left;">
+                    <div class = "text-group-1" style = "margin:20; padding:0; text-align: left;">
                         <h3>가장 간단하고 강력한 퍼스널 브랜딩</h3><br>
                         <p>
                             모자는 사람의 인체 가장 높은곳에 착용된다. 모자를 쓴 사람이 시야에 들어왔을때 가장 먼저 색감과<br>형태 그 다음으로 로고 순으로 대상을 인지한다. 모자를 쓰지 않았다면 눈과 헤어스타일을<br>
@@ -277,22 +383,23 @@
 
                     </div>
                 </div>
-                <div class = "graphic-box" id = "ep1-5"><img src= "picture source/ep1-pic4.svg"></div>
                 <div class = "right-sub-container"></div>
             </div>
+
+           
 
             <div class= "contents-container">
                 <div class = "left-sub-container"></div>
                 <div class = "main-container">
                     <div class ="graphic-box"><img src = "graphic source/ep1_05.png"></div>
 
-                    <div class = "text-group-2" style="padding-top: 640px;">
+                    <div class = "text-group-2" style="padding-top: 550px;">
                         <p>
                             베이스볼캡이 본격적으로 아이코닉하게 자리잡게 된 시점은 아마도 1950년 뉴에라의 창립자인 에른하르트 콕이 세상을 떠나고 그의 아들인 래럴드 콕이 취임하며 뉴에라 제품에 많은 혁신과 발전을 가져오게 되었다. 이러한 그의 노력은 오늘날 우리가 알고 있는 야구모자의 시초가 되었고, 특히 현 세대에서도 가장 사랑받는 실루엣인 59FIFTY 의 시초가 되는 모자를 개발. 야구모자 제조업계의 기준을 확립 했다. 59FIFTY: 일자챙으로 사이즈가 다양한 모자. ( ‘볼캡’ X )
                         </p>
                     </div>
 
-                    <div class ="graphic-box" style="padding-top: 780px;"><img src = "graphic source/ep1_06.png"></div>
+                    <div class ="graphic-box" style="padding-top: 900px;"><img src = "graphic source/ep1_06.png"></div>
 
                     <div class = "text-group-2" style="padding-top: 1500px;">
                         <p>
@@ -323,6 +430,10 @@
 
 
         </main>
+
+        <div id="container">
+            <div id="log">0</div>
+        </div>
         
     </body>
 </html>
